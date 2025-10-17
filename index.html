@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>One-like — Demo minimalista</title>
+
+  <!-- Google Fonts: Inter (opcional). Si no quieres dependencias externas, quita la siguiente línea. -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Preload a small inline SVG as icon for faster paint (example) -->
+  <link rel="preload" href="#logo-svg" as="image">
+</head>
+<body>
+  <!-- Skip link for accessibility -->
+  <a class="skip-link" href="#main">Saltar al contenido principal</a>
+
+  <!-- Header: semántico con navegación y buscador -->
+  <header class="site-header" role="banner">
+    <div class="header-inner container">
+      <!-- Logo (SVG inline for crispness and zero external assets) -->
+      <a class="logo" href="#" aria-label="Inicio — One-like">
+        <!-- Simple abstract "one" logo -->
+        <svg width="42" height="42" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <rect width="64" height="64" rx="10" fill="#0b66ff"></rect>
+          <circle cx="32" cy="26" r="10" fill="white"></circle>
+          <rect x="28" y="20" width="8" height="20" rx="3" fill="#0b66ff"></rect>
+        </svg>
+        <span class="logo-text">One-Like</span>
+      </a>
+
+      <!-- Primary navigation -->
+      <nav class="primary-nav" role="navigation" aria-label="Menú principal">
+        <ul>
+          <li><a href="#" class="nav-link">Productos</a></li>
+          <li><a href="#" class="nav-link">Desarrolladores</a></li>
+          <li><a href="#" class="nav-link">Recursos</a></li>
+        </ul>
+      </nav>
+
+      <!-- Search + actions -->
+      <div class="header-actions">
+        <!-- Search form (accessible) -->
+        <form id="searchForm" role="search" aria-label="Buscar artículos">
+          <label for="siteSearch" class="visually-hidden">Buscar</label>
+          <input id="siteSearch" name="q" type="search" placeholder="Buscar artículos, guías..." aria-label="Buscar artículos" />
+          <button type="submit" class="btn icon-btn" aria-label="Buscar">
+            🔍
+          </button>
+        </form>
+
+        <!-- Mobile menu toggle -->
+        <button id="mobileToggle" class="btn ghost mobile-toggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú">
+          ☰
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu (kept outside main nav for clarity) -->
+    <div id="mobileMenu" class="mobile-menu" hidden>
+      <nav role="navigation" aria-label="Menú móvil">
+        <ul>
+          <li><a href="#">Productos</a></li>
+          <li><a href="#">Desarrolladores</a></li>
+          <li><a href="#">Recursos</a></li>
+          <li><a href="#">Soporte</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main content: semántico y accesible -->
+  <main id="main" class="site-main" role="main">
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-text">
+        <h1 id="hero-title">Herramientas y recursos para crear experiencias web limpias</h1>
+        <p class="lead">Un diseño minimalista, accesible y optimizado. Ejemplo de estructura inspirada en one.google.com, sin copiar contenido.</p>
+
+        <div class="hero-actions">
+          <a href="#" class="btn primary">Explorar recursos</a>
+          <a href="#" class="btn ghost">Ver documentación</a>
+        </div>
+      </div>
+
+      <!-- Illustration simple con SVG (sin imágenes externas) -->
+      <figure class="hero-figure" aria-hidden="true">
+        <svg viewBox="0 0 220 160" width="320" height="240" role="img" focusable="false">
+          <rect x="0" y="0" width="220" height="160" rx="12" fill="#0b66ff" opacity="0.12"></rect>
+          <rect x="14" y="18" width="80" height="36" rx="6" fill="#0b66ff"></rect>
+          <rect x="14" y="64" width="192" height="12" rx="6" fill="#0b66ff" opacity="0.8"></rect>
+          <rect x="14" y="84" width="120" height="12" rx="6" fill="#0b66ff" opacity="0.6"></rect>
+          <rect x="14" y="104" width="160" height="12" rx="6" fill="#0b66ff" opacity="0.4"></rect>
+        </svg>
+        <figcaption class="visually-hidden">Ilustración simplificada de recursos digitales</figcaption>
+      </figure>
+    </section>
+
+    <section class="cards container" aria-labelledby="cards-title">
+      <h2 id="cards-title" class="section-title">Últimos artículos</h2>
+
+      <!-- Responsive grid of article cards -->
+      <div class="grid">
+        <!-- Article 1 -->
+        <article class="card reveal" tabindex="0" aria-labelledby="a1-title">
+          <div class="card-media" aria-hidden="true">
+            <!-- small SVG thumbnail -->
+            <svg viewBox="0 0 100 60" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+              <rect width="100%" height="100%" rx="8" fill="#0b66ff" opacity="0.12"></rect>
+            </svg>
+          </div>
+          <div class="card-body">
+            <h3 id="a1-title">Performance: carga rápida y percepción</h3>
+            <p class="muted">Consejos prácticos para mejorar el Time to Interactive y la experiencia del usuario.</p>
+            <a class="card-cta btn small" href="#" aria-label="Leer: Performance: carga rápida y percepción">Leer</a>
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="card reveal" tabindex="0" aria-labelledby="a2-title">
+          <div class="card-media" aria-hidden="true">
+            <svg viewBox="0 0 100 60" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+              <rect width="100%" height="100%" rx="8" fill="#0b66ff" opacity="0.12"></rect>
+            </svg>
+          </div>
+          <div class="card-body">
+            <h3 id="a2-title">Accesibilidad: mejores prácticas</h3>
+            <p class="muted">Checklist semántico y ejemplos para un sitio realmente accesible.</p>
+            <a class="card-cta btn small" href="#" aria-label="Leer: Accesibilidad: mejores prácticas">Leer</a>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="card reveal" tabindex="0" aria-labelledby="a3-title">
+          <div class="card-media" aria-hidden="true">
+            <svg viewBox="0 0 100 60" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+              <rect width="100%" height="100%" rx="8" fill="#0b66ff" opacity="0.12"></rect>
+            </svg>
+          </div>
+          <div class="card-body">
+            <h3 id="a3-title">Diseño: minimalismo funcional</h3>
+            <p class="muted">Patrones y decisiones de diseño para interfaces precises y limpias.</p>
+            <a class="card-cta btn small" href="#" aria-label="Leer: Diseño: minimalismo funcional">Leer</a>
+          </div>
+        </article>
+
+        <!-- Article 4 (example) -->
+        <article class="card reveal" tabindex="0" aria-labelledby="a4-title">
+          <div class="card-media" aria-hidden="true">
+            <svg viewBox="0 0 100 60" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+              <rect width="100%" height="100%" rx="8" fill="#0b66ff" opacity="0.12"></rect>
+            </svg>
+          </div>
+          <div class="card-body">
+            <h3 id="a4-title">Componentes: ligero y responsable</h3>
+            <p class="muted">Cómo construir componentes con HTML, CSS y JavaScript mínimo.</p>
+            <a class="card-cta btn small" href="#" aria-label="Leer: Componentes: ligero y responsable">Leer</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Optional: a short newsletter / CTA strip -->
+    <section class="cta container" aria-labelledby="cta-title">
+      <h2 id="cta-title">Mantente al día</h2>
+      <p class="muted">Suscríbete a un resumen mensual con trucos y ejemplos prácticos.</p>
+      <form class="inline-form" aria-label="Suscripción por correo">
+        <label for="email" class="visually-hidden">Correo electrónico</label>
+        <input id="email" type="email" placeholder="tu@ejemplo.com" aria-label="Correo electrónico" required>
+        <button class="btn primary" type="submit">Suscribirse</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer semántico -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <small>© <span id="year"></span> One-Like — Demo minimalista</small>
+      </div>
+      <div class="footer-right">
+        <nav aria-label="Enlaces del pie">
+          <ul>
+            <li><a href="#">Privacidad</a></li>
+            <li><a href="#">Condiciones</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- App JavaScript -->
+  <script src="app.js" defer></script>
+</body>
+</html>
